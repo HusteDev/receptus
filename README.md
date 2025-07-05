@@ -1,36 +1,33 @@
 # Receptus
 
-```
-
-```
+```bash
   RRRRR  EEEEE  CCCCC  EEEEE  PPPPP  TTTTT  U   U  SSSSS
   R   R  E      C      E      P   P    T    U   U  S
-  RRRRR  EEEE   C      EEEE   PPPPP    T    U   U  SSSS
-  R R    E      C      E      P        T    U   U     S
-  R  RR  EEEEE  CCCCC  EEEEE  P        T     UUU   SSSS
+  RRRRR  EEEE   C      EEEE   PPPPP    T    U   U  SSSSS
+  R R    E      C      E      P        T    U   U      S
+  R  RR  EEEEE  CCCCC  EEEEE  P        T     UUU   SSSSS
 ```
-
 
 
 **Receptus** — from the Latin *"received (text)"* — is a Python CLI prompt toolkit built for humans.
 
 It enables the creation of intelligent and secure terminal interfaces with advanced input features like:
 
-- ✅ Option selection (single & multi)
-- ✅ Free-form text input
-- ✅ Input validation and transformation
-- ✅ Fuzzy matching and auto-complete
-- ✅ Password masking
-- ✅ ANSI and ASCII-compatible output
-- ✅ Timeout and retry handling
-- ✅ Input history
-- ✅ Event logging hooks (`on_event`)
-- ✅ Quit/help commands
-- ✅ Dynamic option lists
+- Option selection (single & multi)
+- Free-form text input
+- Input validation and transformation
+- Fuzzy matching and auto-complete
+- Password masking
+- ANSI and ASCII-compatible output
+- Timeout and retry handling
+- Input history
+- Event logging hooks (`on_event`)
+- Quit/help commands
+- Dynamic option lists
 
 ---
 
-## 🔧 Installation
+## Installation
 
 Receptus is a single-file drop-in module. Just copy `receptus.py` into your project.
 
@@ -38,7 +35,7 @@ You can also install it via GitHub (PyPI coming soon):
 
 ```bash
 pip install git+https://github.com/hustedev/receptus.git
-
+```
 
 ---
 
@@ -60,9 +57,9 @@ print(f"You chose: {color}")
 
 ---
 
-## 🎯 Features
+## Features
 
-### ✅ Prompt with Options
+### Prompt with Options
 
 ```python
 options = {
@@ -80,7 +77,7 @@ choice = Receptus().get_input(
 
 ---
 
-### ✅ Free Text + Validation + Transform
+### Free Text + Validation + Transform
 
 ```python
 def validate_port(s):
@@ -103,7 +100,7 @@ port = Receptus().get_input(
 
 ---
 
-### ✅ Multi-Select
+### Multi-Select
 
 ```python
 files = Receptus().get_input(
@@ -117,7 +114,7 @@ files = Receptus().get_input(
 
 ---
 
-### ✅ Fuzzy Match & Auto-Complete
+### Fuzzy Match & Auto-Complete
 
 ```python
 name = Receptus().get_input(
@@ -130,7 +127,7 @@ name = Receptus().get_input(
 
 ---
 
-### ✅ Password Masking + Timeout
+### Password Masking + Timeout
 
 ```python
 secret = Receptus().get_input(
@@ -142,7 +139,7 @@ secret = Receptus().get_input(
 
 ---
 
-### ✅ Event Logging via `on_event`
+### Event Logging via `on_event`
 
 ```python
 def logger(event_type, ctx):
@@ -156,7 +153,7 @@ Receptus(on_event=logger).get_input(
 
 ---
 
-## 🧪 Return Formats
+## Return Formats
 
 You can control what `get_input()` returns:
 
@@ -168,14 +165,14 @@ return_format="tuple"   # -> ("1", "One")
 
 ---
 
-## 📦 Environment Variables
+## Environment Variables
 
 * `FORCE_ASCII=1` — disables Unicode output
 * `NO_COLOR=1` — disables ANSI color
 
 ---
 
-## 📜 License
+## License
 
 MIT License — do anything you want, but attribution appreciated.
 
@@ -192,7 +189,7 @@ MIT License — do anything you want, but attribution appreciated.
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Pull requests welcome! Just fork, branch, and submit.
 
