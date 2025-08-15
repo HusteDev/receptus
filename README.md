@@ -192,7 +192,7 @@ MIT License — do anything you want, but attribution appreciated.
 
 ## 🚧 Roadmap
 
-* [ ] PyPI release
+* [x] PyPI release
 * [ ] TypeScript wrapper for Node CLI tools
 * [ ] Native zsh/bash integration helpers
 * [ ] Dynamic theming
