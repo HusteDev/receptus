@@ -37,3 +37,15 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           print-hash: true
+          skip-existing: true
+          verify-metadata: true
+      - name: Verify tag matches package version
+        shell: python
+        run: |
+          import tomllib, os, sys
+          tag = os.environ["GITHUB_REF_NAME"].lstrip("v")
+          with open("pyproject.toml","rb") as f:
+              version = tomllib.load(f)["project"]["version"]
+          if tag != version:
+              print(f"Tag {tag} != pyproject version {version}")
+              sys.exit(1)

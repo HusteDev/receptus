@@ -1,3 +1,13 @@
+[![CI](https://github.com/HusteDev/receptus/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/HusteDev/receptus/actions/workflows/ci.yml)
+
+[![PyPI](https://img.shields.io/pypi/v/receptus)](https://pypi.org/project/receptus/)
+![PyPI - Wheel](https://img.shields.io/pypi/wheel/receptus)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/receptus)
+![License](https://img.shields.io/pypi/l/receptus)
+[![security: bandit](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
+[![codecov](https://codecov.io/gh/HusteDev/receptus/branch/main/graph/badge.svg)](https://codecov.io/gh/HusteDev/receptus)
+
+
 # Receptus
 
 ```bash

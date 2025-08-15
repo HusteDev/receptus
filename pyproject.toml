@@ -32,3 +32,19 @@ Homepage = "https://github.com/HusteDev/receptus"
 package-dir = {"" = "src"}
 packages = ["receptus"]
 
+[tool.pytest.ini_options]
+addopts = "--cov=receptus --cov-report=term-missing --cov-report=xml"
+testpaths = ["tests"]
+# if you don't use editable install:
+# pythonpath = ["src"]
+
+[tool.coverage.run]
+branch = true
+source = ["receptus"]
+
+[tool.coverage.report]
+fail_under = 85
+exclude_lines = [
+  "pragma: no cover",
+  "if __name__ == .__main__.:",
+]

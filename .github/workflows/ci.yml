@@ -1,0 +1,36 @@
+# .github/workflows/ci.yml
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        py: ["3.10", "3.11", "3.12", "3.13"]
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.py }}
+          cache: pip
+      - run: python -m pip install -U pip
+      - run: pip install -e ".[dev]" pytest pytest-cov
+      - name: Run tests with coverage
+        run: |
+          pytest -q --cov=receptus --cov-report=xml --cov-report=term-missing
+      - name: Upload coverage to Codecov (OIDC)
+        if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.fork == false }}
+        uses: codecov/codecov-action@v5
+        with:
+          use_oidc: true
+          files: ./coverage.xml
+          flags: ${{ matrix.os }},py${{ matrix.py }}
+          fail_ci_if_error: true
+          verbose: true

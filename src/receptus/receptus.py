@@ -84,21 +84,17 @@ class Receptus:
             return True
         return ("ANSICON" in os.environ) or ("WT_SESSION" in os.environ) or ("TERM" in os.environ and os.environ["TERM"] == "xterm")
 
-    def sanitize_input(self, text, ascii_only=False):
+    def sanitize_input(self, text, ascii_only=None):
         """
         Normalize and optionally strip accents and non-ASCII characters from input.
         """
         if ascii_only is None:
             ascii_only = self.force_ascii
-        text = unicodedata.normalize('NFKC', text)
+        text = unicodedata.normalize("NFKC", text)
         if ascii_only:
-            # Strip accents/diacritics
-            text = ''.join(
-                c for c in text
-                if not unicodedata.combining(c)
-            )
-            # Remove all non-ascii chars
-            text = text.encode('ascii', 'ignore').decode('ascii')
+            text = unicodedata.normalize("NFKD", text)
+            text = "".join(c for c in text if not unicodedata.combining(c))
+            text = text.encode("ascii", "ignore").decode("ascii")
         return text
     
     def out(self, *args, line_clear=None, line_sep=None, line_end=None):
