@@ -31,11 +31,7 @@ jobs:
         if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.fork == false }}
         uses: codecov/codecov-action@v5
         with:
-          use_oidc: true
+          token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage.xml
           flags: ${{ matrix.os }},py${{ matrix.py }}
           fail_ci_if_error: false
-          verbose: true
-        env:
-          # Make sure no token sneaks in from repo/org/env:
-          CODECOV_TOKEN: ""             # force-empty to avoid fallback
