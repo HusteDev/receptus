@@ -41,9 +41,11 @@ It enables the creation of intelligent and secure terminal interfaces with advan
 
 Receptus is a single-file drop-in module. Just copy `receptus.py` into your project.
 
-You can also install it via GitHub (PyPI coming soon):
+You can also install it via PyPI or GitHub:
 
 ```bash
+pip install receptus
+
 pip install git+https://github.com/hustedev/receptus.git
 ```
 
